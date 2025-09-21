@@ -1,0 +1,121 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hello
+    - hi there
+    - good morning
+    - namaste
+    - नमस्ते
+
+- intent: goodbye
+  examples: |
+    - goodbye
+    - bye
+    - see you later
+    - अलविदा
+
+- intent: thank_you
+  examples: |
+    - thank you
+    - thanks
+    - धन्यवाद
+
+- intent: symptom_query
+  examples: |
+    - I have symptoms
+    - I am experiencing symptoms
+    - मुझे लक्षण हैं
+    - I feel sick
+
+- intent: vaccination_query
+  examples: |
+    - I need vaccine information
+    - tell me about vaccines
+    - टीकाकरण की जानकारी
+    - vaccination schedule
+
+- intent: fever_symptoms
+  examples: |
+    - I have fever
+    - I am running a temperature
+    - मुझे बुखार है
+    - high temperature
+
+- intent: cough_symptoms
+  examples: |
+    - I have a cough
+    - I am coughing
+    - खांसी आ रही है
+    - persistent cough
+
+- intent: headache_symptoms
+  examples: |
+    - I have a headache
+    - my head hurts
+    - सिर दर्द
+    - head pain
+
+- intent: stomach_pain
+  examples: |
+    - I have stomach pain
+    - my stomach hurts
+    - पेट दर्द
+    - abdominal pain
+
+- intent: fatigue_symptoms
+  examples: |
+    - I am tired
+    - I feel exhausted
+    - थकान
+    - feeling weak
+
+- intent: covid_vaccine
+  examples: |
+    - COVID vaccine
+    - coronavirus vaccine
+    - कोविड टीका
+    - COVID-19 vaccination
+
+- intent: flu_vaccine
+  examples: |
+    - flu vaccine
+    - influenza vaccine
+    - फ्लू टीका
+    - flu shot
+
+- intent: routine_vaccines
+  examples: |
+    - routine vaccines
+    - childhood vaccines
+    - नियमित टीके
+    - basic vaccines
+
+- intent: travel_vaccines
+  examples: |
+    - travel vaccines
+    - travel immunization
+    - यात्रा टीके
+    - travel shots
+
+- intent: emergency_help
+  examples: |
+    - emergency
+    - urgent help
+    - आपातकाल
+    - immediate help
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot
+    - are you human
+    - क्या आप बोट हैं
+    - who are you
+
+- intent: nlu_fallback
+  examples: |
+    - I don't understand
+    - what do you mean
+    - मुझे समझ नहीं आया
+    - can you explain
