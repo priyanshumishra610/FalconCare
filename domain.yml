@@ -1,34 +1,253 @@
 version: "3.1"
 
 intents:
+  # Basic conversation
   - greet
   - goodbye
   - affirm
   - deny
-  - mood_great
-  - mood_unhappy
   - bot_challenge
+  - bot_capabilities
+  
+  # Health symptoms
+  - symptom_fever
+  - symptom_cough
+  - symptom_cold
+  - symptom_headache
+  - symptom_stomachache
+  - symptom_vomiting
+  - symptom_bodyache
+  - symptom_breathing
+  - symptom_skin
+  
+  # Emergency situations
+  - emergency_severe
+  - emergency_moderate
+  
+  # Vaccination queries
+  - vaccination_schedule
+  - vaccination_covid
+  - vaccination_child
+  
+  # Preventive care
+  - prevention_hygiene
+  - prevention_nutrition
+  - prevention_exercise
+  
+  # Disease information
+  - disease_diabetes
+  - disease_hypertension
+  - disease_anemia
+  - disease_malaria
+  - disease_dengue
+  
+  # Medicine queries
+  - medicine_dosage
+  - medicine_side_effects
+  
+  # Myth busting
+  - myth_home_remedies
+  - myth_false_cures
+  
+  # Health services
+  - find_doctor
+  - ambulance_help
+  
+  # Information gathering intents
+  - inform_duration
+  - inform_severity
+  - inform_location
+  - inform_age
+  - inform_symptom
+
+entities:
+  - symptom
+  - duration
+  - severity
+  - patient_relation
+  - age
+  - body_part
+  - medicine_name
+  - disease_name
+  - location
+
+slots:
+  symptom:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: symptom
+  
+  duration:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: duration
+  
+  severity:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: severity
+  
+  patient_age:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: age
+  
+  patient_relation:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: patient_relation
+  
+  triage_level:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: custom
+  
+  user_location:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: location
+  
+  user_language:
+    type: text
+    initial_value: "hindi"
+    influence_conversation: false
+    mappings:
+      - type: custom
+  
+  conversation_stage:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: custom
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
+    - text: "🙏 नमस्ते! मैं FalconCare हूं। आपके स्वास्थ्य की सेवा में हाजिर हूं। आप कैसे हैं?"
+    - text: "Hello! I'm FalconCare, your health companion. How can I help you today?"
+    - text: "🩺 नमस्ते डॉक्टर साहब! मैं आपका डिजिटल स्वास्थ्य सहायक हूं। क्या समस्या है?"
 
   utter_goodbye:
-  - text: "Bye"
+    - text: "🙏 धन्यवाद! स्वस्थ रहें, खुश रहें। जरूरत हो तो मैं यहीं हूं। राम राम!"
+    - text: "Take care! Stay healthy and remember - I'm always here when you need health advice. 🌟"
+    - text: "अलविदा! याद रखें - बीमारी से बचाव, इलाज से बेहतर। स्वस्थ रहें! 💚"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+    - text: "मैं FalconCare हूं - भारत सरकार का डिजिटल स्वास्थ्य सहायक। मैं 12+ भाषाओं में बात कर सकता हूं और आपको सही स्वास्थ्य जानकारी देता हूं। 🤖🩺"
+    - text: "I'm FalconCare, an AI health assistant created to serve rural India. I provide verified health information in multiple languages. I'm not a doctor, but I can help you with basic health guidance! 🏥"
+
+  utter_capabilities:
+    - text: |
+        🩺 **मैं आपकी इन चीजों में मदद कर सकता हूं:**
+        
+        ✅ लक्षणों की जांच (बुखार, खांसी, पेट दर्द)
+        ✅ टीकाकरण की जानकारी 
+        ✅ आपातकालीन स्थिति में मार्गदर्शन
+        ✅ नजदीकी अस्पताल/डॉक्टर खोजना
+        ✅ गलत स्वास्थ्य जानकारी की पहचान
+        ✅ बचाव के तरीके
+        ✅ दवाओं की जानकारी
+        
+        🚨 **याद रखें:** मैं डॉक्टर की जगह नहीं हूं। गंभीर समस्या में तुरंत डॉक्टर से मिलें!
+
+  utter_emergency_alert:
+    - text: |
+        🚨 **यह आपातकालीन स्थिति है!**
+        
+        तुरंत करें:
+        📞 108 पर कॉल करें (एम्बुलेंस)
+        🏥 नजदीकी अस्पताल जाएं
+        👨‍⚕️ किसी डॉक्टर से तुरंत मिलें
+        
+        समय बर्बाद न करें! अभी कॉल करें: 108
+
+  utter_moderate_warning:
+    - text: |
+        ⚠️ **ध्यान दें - डॉक्टर से मिलना जरूरी है**
+        
+        सुझाव:
+        🕐 24 घंटे के अंदर डॉक्टर से मिलें
+        🏥 नजदीकी PHC या अस्पताल जाएं
+        📱 ASHA कार्यकर्ता से संपर्क करें
+        💧 ज्यादा पानी पिएं और आराम करें
+
+  utter_mild_advice:
+    - text: |
+        ✅ **यह हल्की समस्या लगती है**
+        
+        घर पर करें:
+        💧 ज्यादा पानी पिएं
+        😴 आराम करें
+        🍯 गुनगुना पानी और शहद लें
+        
+        ⚠️ **अगर 2-3 दिन में सुधार न हो तो डॉक्टर से मिलें**
+
+  utter_myth_detected:
+    - text: |
+        ❌ **यह गलत जानकारी है!**
+        
+        🚫 इस पर विश्वास न करें
+        ✅ सही जानकारी के लिए मुझसे पूछें
+        👨‍⚕️ डॉक्टर की सलाह लें
+        
+        📚 स्रोत: भारत सरकार स्वास्थ्य मंत्रालय
+
+  utter_ask_duration:
+    - text: "कब से यह समस्या है? कृपया बताएं।"
+    - text: "कितने दिन से परेशानी है?"
+
+  utter_ask_severity:
+    - text: "कितनी तकलीफ है? हल्की, मध्यम या बहुत ज्यादा?"
+
+  utter_ask_other_symptoms:
+    - text: "और कोई परेशानी है? जैसे बुखार, सिरदर्द, उल्टी?"
+
+  utter_ask_location:
+    - text: "आप कहां रहते हैं? कृपया अपना पिनकोड या जिला बताएं।"
+
+  utter_ask_age:
+    - text: "मरीज की उम्र कितनी है?"
+
+  utter_default:
+    - text: "क्षमा करें, मैं समझ नहीं पाया। कृपया अपनी समस्या सरल शब्दों में बताएं। 🤔"
+    - text: "Sorry, I didn't understand. Could you please rephrase your health concern?"
+
+actions:
+  - action_triage_symptoms
+  - action_emergency_call
+  - action_find_hospital
+  - action_check_vaccination
+  - action_disease_stats
+  - action_detect_myth
+  - action_ask_duration
+  - action_ask_severity
+  - action_ask_other_symptoms
+  - action_ask_location
+  - action_ask_age
+  - action_provide_prevention_advice
+  - action_medicine_information
+  - action_vaccination_reminder
+  - action_default_fallback
+
+forms:
+  symptom_assessment_form:
+    required_slots:
+      - symptom
+      - duration
+      - severity
 
 session_config:
-  session_expiration_time: 60
+  session_expiration_time: 300
   carry_over_slots_to_new_session: true

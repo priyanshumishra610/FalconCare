@@ -1,91 +1,478 @@
 version: "3.1"
 
 nlu:
+# ===== BASIC CONVERSATION =====
 - intent: greet
   examples: |
     - hey
     - hello
     - hi
-    - hello there
     - good morning
     - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+    - namaste
+    - namaskar
+    - pranam
+    - sat sri akal
+    - vanakkam
+    - adab
+    - سلام علیکم
+    - हैलो
+    - नमस्ते
+    - सुप्रभात
+    - शुभ संध्या
+    - assalamu alaikum
+    - kem cho
+    - vanakkam doctor
+    - doctor sahab
 
 - intent: goodbye
   examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
     - bye
     - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
     - see you later
+    - take care
+    - धन्यवाद
+    - शुक्रिया
+    - alvida
+    - फिर मिलेंगे
+    - thanks doctor
+    - thank you
+    - khuda hafiz
+    - ram ram
 
 - intent: affirm
   examples: |
     - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
+    - yeah
     - correct
+    - right
+    - हाँ
+    - जी हाँ
+    - बिल्कुल
+    - सही
+    - ठीक है
+    - bilkul
+    - sahi
+    - theek hai
 
 - intent: deny
   examples: |
     - no
-    - n
+    - nahi
+    - नहीं
+    - गलत
     - never
-    - I don't think so
-    - don't like that
+    - galat
+    - na
     - no way
-    - not really
 
-- intent: mood_great
+# ===== HEALTH SYMPTOMS =====
+- intent: symptom_fever
   examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
+    - I have fever
+    - मुझे बुखार है
+    - bukhar hai
+    - feeling hot
+    - body temperature is high
+    - fever since 2 days
+    - बुखार 3 दिन से है
+    - taap aa raha hai
+    - गर्मी लग रही है
+    - fever with chills
+    - ठंड लगकर बुखार
+    - my child has fever
+    - बच्चे को बुखार है
+    - bachche ko bukhar
 
-- intent: mood_unhappy
+- intent: symptom_cough
   examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+    - I have cough
+    - खांसी है
+    - khansi hai
+    - coughing since morning
+    - dry cough
+    - सूखी खांसी
+    - कफ आ रहा है
+    - kaph aa raha hai
+    - chest congestion
+    - सीने में जकड़न
+    - whooping cough
+    - खांसी नहीं रुक रही
 
+- intent: symptom_cold
+  examples: |
+    - I have cold
+    - सर्दी लगी है
+    - sardi lagi hai
+    - runny nose
+    - नाक बह रही है
+    - naak beh rahi hai
+    - blocked nose
+    - नाक बंद है
+    - sneezing
+    - छींक आ रही है
+    - chheenk aa rahi hai
+
+- intent: symptom_headache
+  examples: |
+    - headache
+    - सिरदर्द
+    - sir dard
+    - head pain
+    - सिर में दर्द
+    - sir mein dard
+    - migraine
+    - अधकपारी
+    - head feels heavy
+    - सिर भारी लग रहा है
+
+- intent: symptom_stomachache
+  examples: |
+    - stomach pain
+    - पेट दर्द
+    - pet dard
+    - stomach ache
+    - पेट में दर्द
+    - pet mein dard
+    - acidity
+    - एसिडिटी
+    - gas problem
+    - गैस की समस्या
+    - loose motions
+    - दस्त लग रहे हैं
+    - diarrhea
+    - पेट खराब है
+
+- intent: symptom_vomiting
+  examples: |
+    - vomiting
+    - उल्टी
+    - ulti
+    - nausea
+    - जी मिचला रहा है
+    - ji michla raha hai
+    - feeling like vomiting
+    - उल्टी आ रही है
+    - throwing up
+    - vomit sensation
+
+- intent: symptom_bodyache
+  examples: |
+    - body pain
+    - शरीर दर्द
+    - badan dard
+    - muscle pain
+    - joint pain
+    - जोड़ों में दर्द
+    - jodon mein dard
+    - back pain
+    - कमर दर्द
+    - kamar dard
+    - weakness
+    - कमजोरी
+    - kamzori
+
+- intent: symptom_breathing
+  examples: |
+    - breathing problem
+    - सांस लेने में तकलीф
+    - saans lene mein takleef
+    - shortness of breath
+    - सांस फूल रही है
+    - chest pain
+    - सीने में दर्द
+    - wheezing
+    - सांस में आवाज
+    - difficulty breathing
+
+- intent: symptom_skin
+  examples: |
+    - skin rash
+    - त्वचा पर दाने
+    - twacha par daane
+    - skin allergy
+    - चकत्ते निकले हैं
+    - chakatte nikle hain
+    - itching
+    - खुजली
+    - khujli
+    - red spots
+    - लाल दाने
+    - burning sensation
+
+# ===== EMERGENCY SITUATIONS =====
+- intent: emergency_severe
+  examples: |
+    - chest pain
+    - सीने में तेज दर्द
+    - heart attack
+    - दिल का दौरा
+    - unconscious
+    - बेहोश हो गया
+    - bleeding heavily
+    - खून बह रहा है
+    - accident happened
+    - दुर्घटना हुई है
+    - can't breathe
+    - सांस नहीं आ रही
+    - severe pain
+    - बहुत तेज दर्द
+    - emergency help
+    - तुरंत मदद चाहिए
+
+- intent: emergency_moderate
+  examples: |
+    - high fever since 3 days
+    - 3 दिन से तेज बुखार
+    - severe vomiting
+    - बहुत उल्टी हो रही
+    - blood in vomit
+    - खून की उल्टी
+    - severe diarrhea
+    - बहुत दस्त
+    - dehydration
+    - पानी की कमी
+    - very weak
+    - बहुत कमजोरी
+
+# ===== VACCINATION QUERIES =====
+- intent: vaccination_schedule
+  examples: |
+    - vaccination schedule
+    - टीकाकरण समय सारणी
+    - teekakaran samay
+    - when to vaccinate child
+    - बच्चे का टीका कब लगवाएं
+    - vaccine calendar
+    - immunization schedule
+    - next vaccine due
+    - अगला टीका कब है
+    - polio drops
+    - पोलियो की दवा
+    - measles vaccine
+    - खसरा का टीका
+
+- intent: vaccination_covid
+  examples: |
+    - covid vaccine
+    - कोविड का टीका
+    - corona vaccine
+    - कोरोना वैक्सीन
+    - when can I get covid vaccine
+    - कोविड वैक्सीन कब मिलेगी
+    - vaccination center
+    - टीकाकरण केंद्र
+    - cowin registration
+    - book vaccine slot
+    - vaccine appointment
+
+- intent: vaccination_child
+  examples: |
+    - child vaccination
+    - बच्चे का टीकाकरण
+    - baby vaccine
+    - newborn vaccination
+    - नवजात का टीका
+    - BCG vaccine
+    - DPT vaccine
+    - MMR vaccine
+    - infant immunization
+    - शिशु टीकाकरण
+
+# ===== PREVENTIVE CARE =====
+- intent: prevention_hygiene
+  examples: |
+    - how to prevent disease
+    - बीमारी से कैसे बचें
+    - cleanliness tips
+    - सफाई के नुस्खे
+    - hand washing
+    - हाथ धोना
+    - hygiene practices
+    - स्वच्छता के नियम
+    - water purification
+    - पानी को साफ कैसे करें
+
+- intent: prevention_nutrition
+  examples: |
+    - healthy diet
+    - स्वस्थ आहार
+    - swasth aahar
+    - nutrition advice
+    - पोषण की सलाह
+    - what to eat
+    - क्या खाना चाहिए
+    - balanced diet
+    - संतुलित आहार
+    - vitamins needed
+    - विटामिन की जरूरत
+
+- intent: prevention_exercise
+  examples: |
+    - exercise tips
+    - व्यायाम की सलाह
+    - vyayam ki salah
+    - daily workout
+    - रोजाना कसरत
+    - yoga benefits
+    - योग के फायदे
+    - physical activity
+    - शारीरिक गतिविधि
+
+# ===== DISEASE INFORMATION =====
+- intent: disease_diabetes
+  examples: |
+    - diabetes information
+    - मधुमेह की जानकारी
+    - madhumeh ki jaankari
+    - sugar disease
+    - शुगर की बीमारी
+    - blood sugar high
+    - खून में शक्कर ज्यादा
+    - diabetes symptoms
+    - डायबिटीज के लक्षण
+
+- intent: disease_hypertension
+  examples: |
+    - high blood pressure
+    - उच्च रक्तचाप
+    - ucch raktchap
+    - BP high
+    - बीपी हाई है
+    - hypertension
+    - blood pressure problem
+    - रक्तचाप की समस्या
+
+- intent: disease_anemia
+  examples: |
+    - anemia
+    - खून की कमी
+    - khoon ki kami
+    - iron deficiency
+    - आयरन की कमी
+    - low hemoglobin
+    - हीमोग्लोबिन कम
+    - pale skin
+    - त्वचा पीली
+
+- intent: disease_malaria
+  examples: |
+    - malaria symptoms
+    - मलेरिया के लक्षण
+    - mosquito fever
+    - मच्छर का बुखार
+    - seasonal fever
+    - मौसमी बुखार
+    - malaria prevention
+    - मलेरिया से बचाव
+
+- intent: disease_dengue
+  examples: |
+    - dengue fever
+    - डेंगू बुखार
+    - dengue symptoms
+    - डेंगू के लक्षण
+    - platelets low
+    - प्लेटलेट्स कम
+    - dengue prevention
+    - डेंगू से बचाव
+
+# ===== MEDICINE QUERIES =====
+- intent: medicine_dosage
+  examples: |
+    - medicine dosage
+    - दवा की मात्रा
+    - dawa ki matra
+    - how much medicine
+    - कितनी दवा लें
+    - tablet dose
+    - गोली कितनी लें
+    - medicine timing
+    - दवा का समय
+
+- intent: medicine_side_effects
+  examples: |
+    - medicine side effects
+    - दवा के नुकसान
+    - dawa ke nuksan
+    - tablet side effects
+    - गोली के साइड इफेक्ट
+    - medicine allergy
+    - दवा से एलर्जी
+    - adverse effects
+    - हानिकारक प्रभाव
+
+# ===== MYTH BUSTING =====
+- intent: myth_home_remedies
+  examples: |
+    - home remedies
+    - घरेलू नुस्खे
+    - gharelu nuskhe
+    - turmeric cures everything
+    - हल्दी सब ठीक करता है
+    - lemon honey for covid
+    - नींबू शहद से कोविड ठीक
+    - herbal medicine
+    - जड़ी बूटी की दवा
+
+- intent: myth_false_cures
+  examples: |
+    - cow urine cure
+    - गौमूत्र से इलाज
+    - drinking hot water prevents covid
+    - गर्म पानी से कोविड नहीं होता
+    - prayers cure disease
+    - प्रार्थना से बीमारी ठीक
+    - black magic treatment
+    - काला जादू का इलाज
+
+# ===== HEALTH SERVICES =====
+- intent: find_doctor
+  examples: |
+    - find doctor near me
+    - पास के डॉक्टर
+    - paas ke doctor
+    - nearest hospital
+    - नजदीकी अस्पताल
+    - nazdeeki aspatal
+    - PHC location
+    - प्राथमिक स्वास्थ्य केंद्र
+    - ASHA worker contact
+    - आशा कार्यकर्ता का नंबर
+
+- intent: ambulance_help
+  examples: |
+    - call ambulance
+    - एम्बुलेंस बुलाओ
+    - ambulance bulao
+    - emergency transport
+    - तुरंत गाड़ी चाहिए
+    - 108 number
+    - need immediate help
+    - तत्काल मदद चाहिए
+
+# ===== BOT CAPABILITIES =====
 - intent: bot_challenge
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - are you a doctor
+    - क्या आप डॉक्टर हैं
+    - kya aap doctor hain
+    - are you human
+    - क्या आप इंसान हैं
+    - who are you
+    - आप कौन हैं
+    - aap kaun hain
+    - what can you do
+    - आप क्या कर सकते हैं
+
+- intent: bot_capabilities
+  examples: |
+    - what can you help with
+    - आप किसमें मदद कर सकते हैं
+    - aap kisme madad kar sakte hain
+    - how can you help
+    - आप कैसे मदद करेंगे
+    - what services do you provide
+    - आप कौन सी सेवा देते हैं
+    - list your features
+    - अपनी सुविधाएं बताएं
