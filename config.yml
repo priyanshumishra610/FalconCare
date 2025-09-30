@@ -21,7 +21,7 @@ pipeline:
   - name: DIETClassifier
     epochs: 200
     constrain_similarities: true
-    model_confidence: linear_norm
+    model_confidence: softmax
     entity_recognition: true
   - name: EntitySynonymMapper
   # Medical regex patterns for symptoms, medicines, body parts
@@ -46,7 +46,7 @@ policies:
     max_history: 8
     epochs: 200
     constrain_similarities: true
-    model_confidence: linear_norm
+    model_confidence: softmax
   # Unexpected intent policy for safety
   - name: UnexpecTEDIntentPolicy
     max_history: 5

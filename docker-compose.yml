@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  backend:
+    build: ./backend
+    environment:
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY:-dev-secret}
+      - DATABASE_URL=${DATABASE_URL:-sqlite:///falconcare.db}
+      - GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./backend:/app
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+

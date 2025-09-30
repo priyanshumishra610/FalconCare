@@ -23,6 +23,7 @@ rules:
   steps:
   - intent: emergency_severe
   - action: action_triage_symptoms
+  - action: action_emergency_call
 
 - rule: Emergency call for ambulance requests
   steps:
@@ -102,10 +103,9 @@ rules:
   - action: action_ask_location
 
 # ===== FALLBACK RULES =====
-- rule: Fallback when confidence is low
-  condition:
-  - action: action_default_fallback
+- rule: Fallback when NLU confidence is low
   steps:
+  - intent: nlu_fallback
   - action: action_default_fallback
 
 # ===== PREVENTION AND EDUCATION =====

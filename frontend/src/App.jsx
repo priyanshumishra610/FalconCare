@@ -23,6 +23,7 @@ import {
   Mail
 } from 'lucide-react';
 import Chatbot from './components/Chatbot.jsx';
+import { Link } from 'react-router-dom';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -505,6 +506,15 @@ const App = () => {
         onClose={() => setChatOpen(false)} 
         darkMode={darkMode} 
       />
+
+      {/* Simple Nav floating menu to new features (keeps existing design) */}
+      <div className="fixed left-6 bottom-6 z-40 flex flex-col gap-2">
+        <Link to="/blog" className="px-4 py-2 rounded-full bg-white/80 backdrop-blur text-sm shadow hover:shadow-md">Blog</Link>
+        <Link to="/faq" className="px-4 py-2 rounded-full bg-white/80 backdrop-blur text-sm shadow hover:shadow-md">FAQ</Link>
+        <Link to="/alerts" className="px-4 py-2 rounded-full bg-white/80 backdrop-blur text-sm shadow hover:shadow-md">Alerts</Link>
+        <Link to="/hospitals" className="px-4 py-2 rounded-full bg-white/80 backdrop-blur text-sm shadow hover:shadow-md">Hospitals</Link>
+        <Link to="/profile" className="px-4 py-2 rounded-full bg-white/80 backdrop-blur text-sm shadow hover:shadow-md">Profile</Link>
+      </div>
     </div>
   );
 };

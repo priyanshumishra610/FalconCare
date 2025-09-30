@@ -200,10 +200,6 @@ stories:
     entities:
     - symptom: "fever"
     - patient_relation: "child"
-  - action: action_ask_age
-  - intent: inform_age
-    entities:
-    - age: "2 years"
   - action: action_ask_duration
   - intent: inform_duration
     entities:
@@ -212,18 +208,26 @@ stories:
   - intent: inform_severity
     entities:
     - severity: "severe"
+  - action: action_ask_age
+  - intent: inform_age
+    entities:
+    - age: "2 years"
   - action: action_triage_symptoms
   - action: action_find_hospital
 
 - story: vaccination and hospital finder combo
   steps:
   - intent: vaccination_child
+  - action: action_ask_age
+  - intent: inform_age
+    entities:
+    - age: "6 months"
+  - action: action_check_vaccination
+  - intent: find_doctor
   - action: action_ask_location
   - intent: inform_location
     entities:
     - location: "raipur"
-  - action: action_check_vaccination
-  - intent: find_doctor
   - action: action_find_hospital
 
 - story: myth detection with education

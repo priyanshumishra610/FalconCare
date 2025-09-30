@@ -91,6 +91,7 @@ const Chatbot = ({ isOpen, onClose, darkMode }) => {
           <div>
             <h3 className="text-lg font-semibold">FALCONCARE Bot</h3>
             <p className="text-sm opacity-90">Your AI health assistant</p>
+            <p className="text-[10px] opacity-80">This is not medical advice. Please consult a doctor.</p>
           </div>
           <button
             onClick={onClose}
@@ -179,6 +180,11 @@ const Chatbot = ({ isOpen, onClose, darkMode }) => {
             >
               <Send className="w-5 h-5" />
             </button>
+          </div>
+          {/* SOS Button */}
+          <div className="mt-3 flex justify-between">
+            <a href="tel:112" className="text-red-600 text-sm hover:underline">Emergency SOS (112)</a>
+            <a href="tel:108" className="text-red-600 text-sm hover:underline">Ambulance (108)</a>
           </div>
         </div>
       </div>
