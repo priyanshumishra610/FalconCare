@@ -305,7 +305,7 @@ class FalconCareTester:
         
         if accuracy >= 85:
             print(f"\n🎉 EXCELLENT! Accuracy target (85%+) achieved!")
-            print(f"🏆 Health Guardian AI is ready for SIH demo!")
+            print(f"🏆 FalconCare is ready for SIH demo!")
         elif accuracy >= 70:
             print(f"\n👍 GOOD! Close to target. Minor improvements needed.")
         else:

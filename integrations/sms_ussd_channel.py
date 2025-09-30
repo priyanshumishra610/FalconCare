@@ -264,7 +264,7 @@ def create_sms_ussd_demo_server():
     <!DOCTYPE html>
     <html>
     <head>
-        <title>🏥 Health Guardian AI - Feature Phone Demo</title>
+        <title>🏥 FalconCare - Feature Phone Demo</title>
         <style>
             body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
             .phone { width: 300px; background: #2c3e50; padding: 20px; border-radius: 20px; margin: 20px auto; }

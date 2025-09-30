@@ -615,7 +615,7 @@ class HealthDashboard:
             "🏠 ASHA_023 (Durg) - House visit: Elderly health checkup",
             "📚 ASHA_067 (Bastar) - Health education: Hygiene awareness session",
             "🤒 ASHA_012 (Surguja) - Symptom reported: Fever in child",
-            "📱 ASHA_089 (Korba) - Used Health Guardian AI: Myth correction"
+            "📱 ASHA_089 (Korba) - Used FalconCare: Myth correction"
         ]
         
         for activity in recent_activities:

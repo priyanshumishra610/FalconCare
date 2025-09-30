@@ -22,7 +22,7 @@ import {
   Linkedin,
   Mail
 } from 'lucide-react';
-import Chatbot from './components/Chatbot.jsx';
+import FalconCareChatbot from './components/FalconCareChatbot.jsx';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -499,8 +499,8 @@ const App = () => {
       <Statistics darkMode={darkMode} />
       <Footer darkMode={darkMode} />
 
-      {/* Chatbot */}
-      <Chatbot 
+      {/* FalconCare Chatbot */}
+      <FalconCareChatbot 
         isOpen={chatOpen} 
         onClose={() => setChatOpen(false)} 
         darkMode={darkMode} 
