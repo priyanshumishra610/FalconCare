@@ -1,4 +1,4 @@
-# Health Guardian AI - Core Dependencies
+# FalconCare - Core Dependencies
 rasa==3.6.15
 rasa-sdk==3.6.2
 

@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Health Guardian AI - Training and Demo Script
+# FalconCare - Training and Demo Script
 # Comprehensive setup for SIH demonstration
 
-echo "🏥 HEALTH GUARDIAN AI - TRAINING & DEMO SETUP"
+echo "🏥 FALCONCARE - TRAINING & DEMO SETUP"
 echo "=" "=" "=" "=" "=" "=" "=" "=" "=" "=" "=" "=" "=" "=" "=" "=" "=" "=" "="
 echo "🎯 Goal: Championship-level AI for rural healthcare"
 echo ""
@@ -45,7 +45,7 @@ else
 fi
 
 # Install required packages
-print_info "Installing Health Guardian AI dependencies..."
+print_info "Installing FalconCare dependencies..."
 pip install -r requirements.txt
 
 if [ $? -eq 0 ]; then
@@ -57,7 +57,7 @@ fi
 
 # Step 2: Train the Model
 echo ""
-echo "🧠 STEP 2: Training Health Guardian AI Model..."
+echo "🧠 STEP 2: Training FalconCare Model..."
 echo "------------------------------------------------"
 
 print_info "Training Rasa NLU and Core models..."
@@ -217,7 +217,7 @@ echo ""
 echo "🎯 FINAL SETUP COMPLETE!"
 echo "========================="
 echo ""
-print_status "Health Guardian AI is ready for SIH demo!"
+print_status "FalconCare is ready for SIH demo!"
 echo ""
 echo "🚀 To start the demo:"
 echo "   1. Terminal 1: rasa run actions"
@@ -238,8 +238,8 @@ echo ""
 print_info "Read demo_scenarios.md for judge demonstration script"
 print_info "Read performance_report.md for technical achievements"
 echo ""
-echo "🙏 स्वास्थ्य गार्डियन AI - स्वस्थ भारत के लिए!"
-echo "   (Health Guardian AI - For a Healthy India!)"
+echo "🙏 FalconCare - स्वस्थ भारत के लिए!"
+echo "   (FalconCare - For a Healthy India!)"
 
 # Make script executable
 chmod +x train_and_demo.sh

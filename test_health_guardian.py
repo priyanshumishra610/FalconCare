@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Health Guardian AI - Comprehensive Test Suite
+FalconCare - Comprehensive Test Suite
 Tests all major components including triage, myth detection, government APIs
 """
 
@@ -13,8 +13,8 @@ from rasa.core.channels.console import ConsoleInputChannel
 from typing import Dict, List
 
 
-class HealthGuardianTester:
-    """Comprehensive test suite for Health Guardian AI"""
+class FalconCareTester:
+    """Comprehensive test suite for FalconCare"""
     
     def __init__(self):
         self.agent = None
@@ -328,11 +328,11 @@ class HealthGuardianTester:
 
 
 async def run_comprehensive_tests():
-    """Run all Health Guardian AI tests"""
-    print("🚀 HEALTH GUARDIAN AI - COMPREHENSIVE TESTING")
+    """Run all FalconCare tests"""
+    print("🚀 FALCONCARE - COMPREHENSIVE TESTING")
     print("=" * 60)
     
-    tester = HealthGuardianTester()
+    tester = FalconCareTester()
     
     # Setup
     if not await tester.setup_agent():
@@ -410,7 +410,7 @@ def test_domain_validation():
 
 
 if __name__ == "__main__":
-    print("🏥 HEALTH GUARDIAN AI - SYSTEM VERIFICATION")
+    print("🏥 FALCONCARE - SYSTEM VERIFICATION")
     print("🎯 Goal: Achieve 85%+ accuracy for SIH championship")
     print("="*60)
     
@@ -428,7 +428,7 @@ if __name__ == "__main__":
             print(f"\n🎯 FINAL VERDICT:")
             if accuracy >= 85:
                 print(f"🏆 CHAMPIONSHIP READY! Accuracy: {accuracy:.1f}%")
-                print(f"🚀 Health Guardian AI exceeds SIH requirements!")
+                print(f"🚀 FalconCare exceeds SIH requirements!")
             else:
                 print(f"⚠️  Needs fine-tuning. Current accuracy: {accuracy:.1f}%")
                 

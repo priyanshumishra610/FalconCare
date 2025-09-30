@@ -1,4 +1,4 @@
-# 🏆 HEALTH GUARDIAN AI - CHAMPIONSHIP SUMMARY
+# 🏆 FALCONCARE - CHAMPIONSHIP SUMMARY
 
 ## 🎯 **MISSION ACCOMPLISHED - SIH CHAMPION READY!**
 
@@ -37,7 +37,7 @@
 ### **🏥 WHAT MAKES US CHAMPIONS**
 
 #### **1. 🎯 EXCEEDS ALL REQUIREMENTS**
-| Requirement | SIH Target | Health Guardian AI | Status |
+| Requirement | SIH Target | FalconCare | Status |
 |-------------|------------|-------------------|--------|
 | Accuracy | 80%+ | **87.5%** | ✅ **+7.5% ABOVE** |
 | Awareness | +20% | **+25%** | ✅ **+5% ABOVE** |
@@ -127,7 +127,7 @@ python test_health_guardian.py
 ## 🏆 **CHAMPIONSHIP PITCH (60 SECONDS)**
 
 ### **Opening Hook (10s):**
-> "In rural India, asking for health advice can cost a day's wages. Health Guardian AI changes that forever."
+> "In rural India, asking for health advice can cost a day's wages. FalconCare changes that forever."
 
 ### **Problem + Solution (20s):**
 > "We've built India's first health AI that works on ₹500 feature phones, speaks 12+ languages, and never sleeps. From emergency triage to myth-busting, it's the digital ASHA worker every village needs."
@@ -229,15 +229,15 @@ streamlit run dashboard/health_dashboard.py &
 ```
 
 ### **Victory Speech Ready:**
-> "Thank you, judges. Health Guardian AI is ready to serve India. Let's build a healthier tomorrow, together."
+> "Thank you, judges. FalconCare is ready to serve India. Let's build a healthier tomorrow, together."
 
 ---
 
 ## 🌟 **THE CHAMPIONSHIP IS OURS!**
 
-**🏥 Health Guardian AI - From Village to Victory! 🏆**
+**🏥 FalconCare - From Village to Victory! 🏆**
 
-**🙏 स्वास्थ्य गार्डियन AI - स्वस्थ भारत के लिए! 🇮🇳**
+**🙏 FalconCare - स्वस्थ भारत के लिए! 🇮🇳**
 
 *Ready to deploy. Ready to win. Ready to transform Indian healthcare.*
 

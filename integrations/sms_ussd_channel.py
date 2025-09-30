@@ -1,4 +1,4 @@
-# Health Guardian AI - SMS & USSD Integration
+# FalconCare - SMS & USSD Integration
 # Feature phone support for rural India (300M+ users)
 
 import logging
@@ -28,7 +28,7 @@ class SMSChannel:
             "2": "टीकाकरण केंद्र: अपना पिनकोड भेजें। उदाहरण: 492001",
             "3": "अस्पताल: जिला अस्पताल रायपुर, फोन: 0771-2221111, दूरी: 2km",
             "4": "आपातकाल: 108 पर तुरंत कॉल करें! 🚨",
-            "help": "Health Guardian AI मेनू:\n1=लक्षण जांच\n2=टीकाकरण\n3=अस्पताल\n4=आपातकाल\nउदाहरण: 'बुखार है' या '1'",
+            "help": "FalconCare मेनू:\n1=लक्षण जांच\n2=टीकाकरण\n3=अस्पताल\n4=आपातकाल\nउदाहरण: 'बुखार है' या '1'",
             "hindi": "भाषा हिंदी में बदली गई। मदद के लिए 'help' भेजें।",
             "english": "Language changed to English. Send 'help' for menu."
         }
@@ -94,7 +94,7 @@ class SMSChannel:
             return "❌ सावधान!\nघरेलू इलाज से धोखा न खाएं।\nडॉक्टर की सलाह जरूरी।\nसही जानकारी: 'help' भेजें"
         
         # Default response
-        return "मैं Health Guardian AI हूं।\nमेनू: 1=लक्षण 2=टीका 3=अस्पताल 4=आपातकाल\nया लिखें: 'बुखार है'"
+        return "मैं FalconCare हूं।\nमेनू: 1=लक्षण 2=टीका 3=अस्पताल 4=आपातकाल\nया लिखें: 'बुखार है'"
 
 
 class USSDSimulator:
@@ -105,7 +105,7 @@ class USSDSimulator:
         
         self.ussd_menu = {
             "main": {
-                "text": "🏥 Health Guardian AI\n1. Bukhar/Fever\n2. Tika/Vaccine\n3. Aspatal/Hospital\n4. Aapatkaal/Emergency\n0. Help/Madad",
+                "text": "🏥 FalconCare\n1. Bukhar/Fever\n2. Tika/Vaccine\n3. Aspatal/Hospital\n4. Aapatkaal/Emergency\n0. Help/Madad",
                 "options": ["1", "2", "3", "4", "0"]
             },
             "fever": {
@@ -236,10 +236,10 @@ class USSDSimulator:
     
     def _create_help_response(self) -> Dict[Text, Any]:
         """Create help response"""
-        help_text = """🏥 Health Guardian AI Madad:
+        help_text = """🏥 FalconCare Madad:
 
 *99*123# - USSD code
-SMS: Health Guardian number ko
+SMS: FalconCare number ko
 
 Suvidha:
 ✅ Bukhar/Fever check
@@ -277,7 +277,7 @@ def create_sms_ussd_demo_server():
         </style>
     </head>
     <body>
-        <h1>🏥 Health Guardian AI - Feature Phone Demo</h1>
+        <h1>🏥 FalconCare - Feature Phone Demo</h1>
         <h2>🎯 For Smart India Hackathon - Rural Accessibility</h2>
         
         <div class="demo-info">
@@ -297,7 +297,7 @@ def create_sms_ussd_demo_server():
                 <h3>📞 USSD Simulator (*99*123#)</h3>
                 <div class="phone">
                     <div class="screen" id="ussd-screen">
-                        <div>🏥 Health Guardian AI</div>
+                        <div>🏥 FalconCare</div>
                         <div>1. Bukhar/Fever</div>
                         <div>2. Tika/Vaccine</div>
                         <div>3. Aspatal/Hospital</div>
@@ -330,7 +330,7 @@ def create_sms_ussd_demo_server():
             <div>
                 <h3>💬 SMS Simulator</h3>
                 <div class="sms-section">
-                    <div><strong>📱 Send to: +91-99999-HEALTH</strong></div>
+                    <div><strong>📱 Send to: +91-99999-FALCON</strong></div>
                     <div style="margin: 10px 0;">
                         <input type="text" id="sms-input" placeholder="Type your message..." style="width: 100%; padding: 10px; font-size: 16px;" maxlength="160">
                         <div style="text-align: right; font-size: 12px; color: #666;" id="char-count">0/160</div>
@@ -424,7 +424,7 @@ def create_sms_ussd_demo_server():
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('sms-response').innerHTML = 
-                        '<strong>📱 Health Guardian AI Response:</strong><br><br>' + data.response;
+                        '<strong>📱 FalconCare Response:</strong><br><br>' + data.response;
                 });
             }
             
@@ -484,6 +484,6 @@ if __name__ == "__main__":
     print("🚀 Starting Feature Phone Demo Server...")
     print("📱 Open: http://localhost:5002")
     print("📞 USSD Code: *99*123#")
-    print("💬 SMS Number: +91-99999-HEALTH")
+    print("💬 SMS Number: +91-99999-FALCON")
     print("🎯 For SIH judges - rural accessibility demo")
     demo_app.run(host="0.0.0.0", port=5002, debug=True)

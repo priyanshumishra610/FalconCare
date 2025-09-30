@@ -1,8 +1,8 @@
-# Health Guardian AI - Configuration
+# FalconCare - Configuration
 # Multilingual AI Chatbot for Rural Healthcare
 recipe: default.v1
 
-assistant_id: health_guardian_ai
+assistant_id: falconcare_ai
 
 # Multi-language support (Hindi + English + regional dialects)
 language: en

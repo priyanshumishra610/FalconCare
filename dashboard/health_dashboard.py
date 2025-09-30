@@ -1,4 +1,4 @@
-# Health Guardian AI - Government Health Dashboard
+# FalconCare - Government Health Dashboard
 # Real-time monitoring for District Health Officers and ASHA workers
 
 import streamlit as st
@@ -13,7 +13,7 @@ import random
 
 # Set page config
 st.set_page_config(
-    page_title="Health Guardian AI - Government Dashboard",
+    page_title="FalconCare - Government Dashboard",
     page_icon="🏥",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -117,7 +117,7 @@ class HealthDashboard:
         st.markdown("""
         <div style="background: linear-gradient(90deg, #2E8B57, #3CB371); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
             <h1 style="color: white; text-align: center; margin: 0;">
-                🏥 Health Guardian AI - Government Dashboard
+                🏥 FalconCare - Government Dashboard
             </h1>
             <p style="color: white; text-align: center; margin: 0; font-size: 18px;">
                 Real-time Health Monitoring & Analytics for Government Officials
@@ -205,7 +205,7 @@ class HealthDashboard:
     
     def render_overview(self):
         """Render overview dashboard"""
-        st.markdown("### 📊 Health Guardian AI - System Overview")
+        st.markdown("### 📊 FalconCare - System Overview")
         
         # Key metrics
         col1, col2, col3, col4 = st.columns(4)
@@ -780,7 +780,7 @@ def main():
     st.markdown("---")
     st.markdown("""
     <div style="text-align: center; color: #666; font-size: 14px;">
-        🏥 Health Guardian AI Dashboard | Government of India | 
+        🏥 FalconCare Dashboard | Government of India | 
         Last Updated: {} | 
         🔒 Secure & Compliant
     </div>

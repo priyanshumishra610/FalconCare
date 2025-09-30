@@ -1,10 +1,10 @@
-# 🏥 HEALTH GUARDIAN AI - SMART INDIA HACKATHON FINAL DEMO
+# 🏥 FALCONCARE - SMART INDIA HACKATHON FINAL DEMO
 
 ## 🎯 **SIH PROBLEM STATEMENT COMPLIANCE**
 
 ### **✅ REQUIREMENTS MET & EXCEEDED**
 
-| Requirement | Target | **Health Guardian AI** | Status |
+| Requirement | Target | **FalconCare** | Status |
 |-------------|--------|------------------------|--------|
 | **Accuracy** | 80%+ | **87.5%** | ✅ **EXCEEDED** |
 | **Awareness Increase** | 20% | **25%+** | ✅ **EXCEEDED** |
@@ -64,7 +64,7 @@
 
 **Judge Input:** "सीने में तेज दर्द हो रहा है, सांस नहीं आ रही"
 
-**Health Guardian AI Response:**
+**FalconCare Response:**
 ```
 🚨 यह आपातकालीन स्थिति है!
 
@@ -90,7 +90,7 @@
 
 **Judge Input:** "बच्चे का कोविड टीका कहां लगवाएं"
 
-**Health Guardian AI Response:**
+**FalconCare Response:**
 ```
 💉 आपके पास के टीकाकरण केंद्र:
 
@@ -117,7 +117,7 @@
 
 **Judge Input:** "हल्दी से कैंसर ठीक हो जाता है"
 
-**Health Guardian AI Response:**
+**FalconCare Response:**
 ```
 ❌ यह गलत जानकारी है!
 
@@ -145,7 +145,7 @@
 **Show USSD Interface:** *99*123#
 
 ```
-🏥 Health Guardian AI
+🏥 FalconCare
 1. Bukhar/Fever
 2. Tika/Vaccine  
 3. Aspatal/Hospital
@@ -193,7 +193,7 @@ Towel se pochain.
 
 ---
 
-## 🏆 **WHY HEALTH GUARDIAN AI WINS SIH**
+## 🏆 **WHY FALCONCARE WINS SIH**
 
 ### **🎯 TECHNICAL EXCELLENCE**
 - **Rasa + Dialogflow** integration (as required)
@@ -307,7 +307,7 @@ streamlit run health_dashboard.py
 
 ## 🎉 **FINAL PITCH (30 seconds)**
 
-> **"Health Guardian AI is not just a chatbot - it's India's digital ASHA worker that never sleeps."**
+> **"FalconCare is not just a chatbot - it's India's digital ASHA worker that never sleeps."**
 > 
 > **We've built the first health AI that:**
 > - ✅ **Exceeds all SIH requirements** (87% accuracy vs 80% target)
@@ -347,7 +347,7 @@ If any technical issues during demo:
 
 ---
 
-**🙏 स्वास्थ्य गार्डियन AI - स्वस्थ भारत के लिए!**
-**(Health Guardian AI - For a Healthy India!)**
+**🙏 FalconCare - स्वस्थ भारत के लिए!**
+**(FalconCare - For a Healthy India!)**
 
 **Ready to serve 1.4 billion Indians! 🇮🇳**

@@ -1,4 +1,4 @@
-# Health Guardian AI - WhatsApp Business API Integration
+# FalconCare - WhatsApp Business API Integration
 # Accessible health chatbot via WhatsApp for rural users
 
 import logging
@@ -139,7 +139,7 @@ class WhatsAppInput(InputChannel):
         
         @whatsapp_webhook.route("/", methods=["GET"])
         def health_check():
-            return jsonify({"status": "WhatsApp Health Guardian AI is running! 🏥"})
+            return jsonify({"status": "WhatsApp FalconCare is running! 🏥"})
         
         @whatsapp_webhook.route("/webhook", methods=["POST"])
         def webhook():
@@ -249,7 +249,7 @@ def create_whatsapp_demo_server():
     @app.route("/")
     def index():
         return """
-        <h1>🏥 Health Guardian AI - WhatsApp Integration</h1>
+        <h1>🏥 FalconCare - WhatsApp Integration</h1>
         <h2>🎯 For Smart India Hackathon Demo</h2>
         
         <div style="background: #e8f5e8; padding: 20px; margin: 20px; border-radius: 10px;">
@@ -295,8 +295,8 @@ def create_whatsapp_demo_server():
             <h2>📱 WhatsApp Chat Simulator</h2>
             <div id="chat" style="border: 1px solid #ccc; height: 400px; overflow-y: auto; padding: 10px; background: #f0f0f0;">
                 <div style="margin: 5px 0; padding: 10px; background: white; border-radius: 10px;">
-                    <strong>Health Guardian AI:</strong><br>
-                    🙏 नमस्ते! मैं Health Guardian AI हूं।<br>
+                    <strong>FalconCare:</strong><br>
+                    🙏 नमस्ते! मैं FalconCare हूं।<br>
                     आपकी स्वास्थ्य सेवा में कैसे मदद कर सकता हूं?
                 </div>
             </div>
@@ -359,7 +359,7 @@ def create_whatsapp_demo_server():
             <strong>You:</strong><br>{user_message}
         </div>
         <div style="margin: 5px 0; padding: 10px; background: white; border-radius: 10px;">
-            <strong>Health Guardian AI:</strong><br>{bot_response}
+            <strong>FalconCare:</strong><br>{bot_response}
         </div>
         <a href="/demo">🔄 Continue Chat</a>
         """
