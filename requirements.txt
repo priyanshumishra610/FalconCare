@@ -1,4 +1,48 @@
+# Health Guardian AI - Core Dependencies
 rasa==3.6.15
+rasa-sdk==3.6.2
+
+# NLP and ML enhancements
+spacy==3.7.2
+transformers==4.36.0
+torch==2.1.0
+
+# Health-specific libraries
+fuzzywuzzy==0.18.0
+python-levenshtein==0.25.0
+
+# API integrations
+requests==2.31.0
+httpx==0.25.2
+
+# Database and caching
+psycopg2-binary==2.9.9
+redis==5.0.1
+
+# Voice processing (for future implementation)
+speechrecognition==3.10.0
+gtts==2.4.0
+
+# Data processing
+pandas==2.1.4
+numpy==1.24.4
+
+# Web framework for custom endpoints
+fastapi==0.104.1
+uvicorn==0.24.0
+
+# Security and validation
+pydantic==2.5.0
+python-dotenv==1.0.0
+
+# Development and testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+black==23.11.0
+
+# Government API integrations
+python-telegram-bot==20.7  # For Telegram integration
+twilio==8.11.0              # For SMS/WhatsApp
 rasa-sdk==3.6.2
 pytest==7.4.3
 pytest-cov==4.1.0

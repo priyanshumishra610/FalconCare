@@ -2,12 +2,156 @@ version: "3.1"
 
 rules:
 
+# ===== BASIC CONVERSATION RULES =====
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
   - action: utter_goodbye
 
-- rule: Say 'I am a bot' anytime the user challenges
+- rule: Introduce bot when challenged
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: Show capabilities when asked
+  steps:
+  - intent: bot_capabilities
+  - action: utter_capabilities
+
+# ===== EMERGENCY HANDLING RULES =====
+- rule: Immediate emergency response for severe symptoms
+  steps:
+  - intent: emergency_severe
+  - action: action_triage_symptoms
+
+- rule: Emergency call for ambulance requests
+  steps:
+  - intent: ambulance_help
+  - action: action_emergency_call
+
+# ===== SYMPTOM ASSESSMENT RULES =====
+- rule: Ask duration for fever symptoms
+  condition:
+  - slot_was_set:
+    - symptom: fever
+  steps:
+  - intent: symptom_fever
+  - action: action_ask_duration
+
+- rule: Ask duration for cough symptoms
+  condition:
+  - slot_was_set:
+    - symptom: cough
+  steps:
+  - intent: symptom_cough
+  - action: action_ask_duration
+
+- rule: Ask duration for stomach symptoms
+  condition:
+  - slot_was_set:
+    - symptom: stomach pain
+  steps:
+  - intent: symptom_stomachache
+  - action: action_ask_duration
+
+- rule: Ask duration for headache symptoms
+  condition:
+  - slot_was_set:
+    - symptom: headache
+  steps:
+  - intent: symptom_headache
+  - action: action_ask_duration
+
+# ===== TRIAGE COMPLETION RULES =====
+- rule: Triage after collecting symptom info
+  condition:
+  - slot_was_set:
+    - symptom: null
+  - slot_was_set:
+    - duration: null
+  steps:
+  - intent: inform_severity
+  - action: action_triage_symptoms
+
+# ===== VACCINATION RULES =====
+- rule: Ask location for vaccination queries
+  steps:
+  - intent: vaccination_covid
+  - action: action_ask_location
+
+- rule: Child vaccination needs age
+  steps:
+  - intent: vaccination_child
+  - action: action_ask_age
+
+# ===== MYTH DETECTION RULES =====
+- rule: Always check for myths in health queries
+  steps:
+  - intent: myth_home_remedies
+  - action: action_detect_myth
+
+- rule: Counter false health claims
+  steps:
+  - intent: myth_false_cures
+  - action: action_detect_myth
+
+# ===== LOCATION-BASED SERVICES =====
+- rule: Hospital finder needs location
+  steps:
+  - intent: find_doctor
+  - action: action_ask_location
+
+# ===== FALLBACK RULES =====
+- rule: Fallback when confidence is low
+  condition:
+  - action: action_default_fallback
+  steps:
+  - action: action_default_fallback
+
+# ===== PREVENTION AND EDUCATION =====
+- rule: Provide hygiene advice
+  steps:
+  - intent: prevention_hygiene
+  - action: action_provide_prevention_advice
+
+- rule: Provide nutrition guidance
+  steps:
+  - intent: prevention_nutrition
+  - action: action_provide_prevention_advice
+
+- rule: Provide exercise tips
+  steps:
+  - intent: prevention_exercise
+  - action: action_provide_prevention_advice
+
+# ===== MEDICINE INFORMATION =====
+- rule: Medicine dosage information
+  steps:
+  - intent: medicine_dosage
+  - action: action_medicine_information
+
+- rule: Medicine side effects information
+  steps:
+  - intent: medicine_side_effects
+  - action: action_medicine_information
+
+# ===== DISEASE INFORMATION =====
+- rule: Disease statistics for dengue
+  steps:
+  - intent: disease_dengue
+  - action: action_disease_stats
+
+- rule: Disease statistics for malaria
+  steps:
+  - intent: disease_malaria
+  - action: action_disease_stats
+
+- rule: Diabetes information
+  steps:
+  - intent: disease_diabetes
+  - action: action_provide_prevention_advice
+
+- rule: Hypertension information
+  steps:
+  - intent: disease_hypertension
+  - action: action_provide_prevention_advice

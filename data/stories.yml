@@ -2,29 +2,252 @@ version: "3.1"
 
 stories:
 
-- story: happy path
+# ===== BASIC CONVERSATION FLOWS =====
+- story: greet and help
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+  - intent: bot_capabilities
+  - action: utter_capabilities
 
-- story: sad path 1
+- story: polite goodbye
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
-
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
+  - intent: goodbye
   - action: utter_goodbye
+
+# ===== SYMPTOM ASSESSMENT FLOWS =====
+- story: fever symptom check - mild case
+  steps:
+  - intent: symptom_fever
+    entities:
+    - symptom: "fever"
+  - action: action_ask_duration
+  - intent: inform_duration
+    entities:
+    - duration: "1-2 days"
+  - action: action_ask_severity
+  - intent: inform_severity
+    entities:
+    - severity: "mild"
+  - action: action_ask_other_symptoms
+  - intent: affirm
+  - action: action_triage_symptoms
+
+- story: fever symptom check - severe case
+  steps:
+  - intent: symptom_fever
+    entities:
+    - symptom: "fever"
+  - action: action_ask_duration
+  - intent: inform_duration
+    entities:
+    - duration: "3-7 days"
+  - action: action_ask_severity
+  - intent: inform_severity
+    entities:
+    - severity: "severe"
+  - action: action_triage_symptoms
+
+- story: cough symptom assessment
+  steps:
+  - intent: symptom_cough
+    entities:
+    - symptom: "cough"
+  - action: action_ask_duration
+  - intent: inform_duration
+    entities:
+    - duration: "more than week"
+  - action: action_ask_other_symptoms
+  - intent: inform_symptom
+    entities:
+    - symptom: "fever"
+  - action: action_triage_symptoms
+
+- story: stomach pain assessment
+  steps:
+  - intent: symptom_stomachache
+    entities:
+    - symptom: "stomach pain"
+  - action: action_ask_duration
+  - intent: inform_duration
+    entities:
+    - duration: "today"
+  - action: action_ask_severity
+  - intent: inform_severity
+    entities:
+    - severity: "moderate"
+  - action: action_triage_symptoms
+
+# ===== EMERGENCY FLOWS =====
+- story: emergency situation - chest pain
+  steps:
+  - intent: emergency_severe
+    entities:
+    - symptom: "chest pain"
+  - action: action_triage_symptoms
+  - action: action_emergency_call
+
+- story: ambulance request
+  steps:
+  - intent: ambulance_help
+  - action: action_emergency_call
+
+- story: breathing difficulty emergency
+  steps:
+  - intent: symptom_breathing
+    entities:
+    - symptom: "difficulty breathing"
+  - action: action_triage_symptoms
+
+# ===== VACCINATION FLOWS =====
+- story: vaccination inquiry
+  steps:
+  - intent: vaccination_schedule
+  - action: action_ask_location
+  - intent: inform_location
+    entities:
+    - location: "raipur"
+  - action: action_check_vaccination
+
+- story: covid vaccination query
+  steps:
+  - intent: vaccination_covid
+  - action: action_ask_location
+  - intent: inform_location
+    entities:
+    - location: "492001"
+  - action: action_check_vaccination
+
+- story: child vaccination
+  steps:
+  - intent: vaccination_child
+  - action: action_ask_age
+  - intent: inform_age
+    entities:
+    - age: "6 months"
+  - action: action_vaccination_reminder
+
+# ===== HEALTH SERVICES =====
+- story: find doctor or hospital
+  steps:
+  - intent: find_doctor
+  - action: action_ask_location
+  - intent: inform_location
+    entities:
+    - location: "bilaspur"
+  - action: action_find_hospital
+
+- story: disease statistics inquiry
+  steps:
+  - intent: disease_dengue
+  - action: action_disease_stats
+
+# ===== PREVENTION AND EDUCATION =====
+- story: hygiene advice request
+  steps:
+  - intent: prevention_hygiene
+  - action: action_provide_prevention_advice
+
+- story: nutrition guidance
+  steps:
+  - intent: prevention_nutrition
+  - action: action_provide_prevention_advice
+
+- story: exercise tips
+  steps:
+  - intent: prevention_exercise
+  - action: action_provide_prevention_advice
+
+# ===== MEDICINE QUERIES =====
+- story: medicine dosage question
+  steps:
+  - intent: medicine_dosage
+  - action: action_medicine_information
+
+- story: medicine side effects
+  steps:
+  - intent: medicine_side_effects
+  - action: action_medicine_information
+
+# ===== MYTH BUSTING =====
+- story: health myth detection
+  steps:
+  - intent: myth_home_remedies
+  - action: action_detect_myth
+
+- story: false cure claim
+  steps:
+  - intent: myth_false_cures
+  - action: action_detect_myth
+
+# ===== BOT CAPABILITIES =====
+- story: bot introduction
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- story: feature inquiry
+  steps:
+  - intent: bot_capabilities
+  - action: utter_capabilities
+
+# ===== COMPLEX MULTI-TURN CONVERSATIONS =====
+- story: complete symptom assessment with follow-up
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: symptom_fever
+    entities:
+    - symptom: "fever"
+    - patient_relation: "child"
+  - action: action_ask_age
+  - intent: inform_age
+    entities:
+    - age: "2 years"
+  - action: action_ask_duration
+  - intent: inform_duration
+    entities:
+    - duration: "3-7 days"
+  - action: action_ask_severity
+  - intent: inform_severity
+    entities:
+    - severity: "severe"
+  - action: action_triage_symptoms
+  - action: action_find_hospital
+
+- story: vaccination and hospital finder combo
+  steps:
+  - intent: vaccination_child
+  - action: action_ask_location
+  - intent: inform_location
+    entities:
+    - location: "raipur"
+  - action: action_check_vaccination
+  - intent: find_doctor
+  - action: action_find_hospital
+
+- story: myth detection with education
+  steps:
+  - intent: myth_home_remedies
+  - action: action_detect_myth
+  - intent: prevention_hygiene
+  - action: action_provide_prevention_advice
+
+# ===== ERROR HANDLING =====
+- story: fallback and recovery
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_default_fallback
+  - intent: symptom_fever
+  - action: action_ask_duration
+
+- story: incomplete information recovery
+  steps:
+  - intent: symptom_cough
+  - action: action_ask_duration
+  - action: action_default_fallback
+  - intent: inform_duration
+    entities:
+    - duration: "1-2 days"
+  - action: action_triage_symptoms
