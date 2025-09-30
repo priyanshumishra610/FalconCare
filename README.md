@@ -1,224 +1,227 @@
-# 🏥 FalconCare - Health Assistant Chatbot
+# 🏥 FalconCare - AI Healthcare Assistant
 
-FalconCare is a comprehensive Rasa-based health assistant chatbot designed to provide symptom information, vaccination guidance, and general health advice. The bot supports multiple languages including English and Hindi, making it accessible to a diverse user base.
+FalconCare is a revolutionary AI-powered healthcare assistant that combines a stunning 3D-animated React frontend with an intelligent Python backend to provide comprehensive health guidance, symptom analysis, and medical assistance.
 
 ## 🌟 Features
 
-- **Symptom Analysis**: Provides detailed information about common symptoms like fever, cough, headache, stomach pain, and fatigue
-- **Vaccination Guidance**: Offers comprehensive information about COVID, flu, routine, and travel vaccines
-- **Multilingual Support**: Supports English and Hindi with examples for each intent
-- **Custom Actions**: Intelligent responses using custom actions for symptom and vaccination queries
-- **Comprehensive Testing**: Unit tests with ≥80% code coverage
-- **Multiple Interfaces**: Console, REST API, and SocketIO support
+### Frontend (React + Three.js)
+- **3D Medical Globe**: Interactive 3D visualization with floating particles
+- **Modern UI/UX**: Beautiful animations powered by GSAP
+- **Dark/Light Mode**: Seamless theme switching
+- **Responsive Design**: Works perfectly on all devices
+- **Real-time Chat**: Integrated chatbot interface
+- **Smooth Animations**: Scroll-triggered animations and transitions
+
+### Backend (Python Flask)
+- **Intelligent Health Analysis**: AI-powered symptom recognition
+- **Emergency Detection**: Automatic emergency response alerts
+- **Comprehensive Knowledge Base**: Covers 100+ health conditions
+- **RESTful API**: Clean, well-documented endpoints
+- **CORS Support**: Seamless frontend integration
+- **Error Handling**: Robust error management
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 16+ and npm
+- Python 3.8+
+- pip
+
+### Backend Setup
+
+1. **Navigate to backend directory**
+   ```bash
+   cd backend
+   ```
+
+2. **Install Python dependencies**
+   ```bash
+   pip3 install -r requirements.txt
+   ```
+
+3. **Start the backend server**
+   ```bash
+   python3 app.py
+   ```
+   
+   The backend will be available at `http://localhost:5000`
+
+### Frontend Setup
+
+1. **Navigate to frontend directory**
+   ```bash
+   cd frontend
+   ```
+
+2. **Install Node.js dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+   
+   The frontend will be available at `http://localhost:3000`
 
 ## 📁 Project Structure
 
 ```
 FalconCare/
-├── actions/
-│   ├── __init__.py
-│   ├── actions.py           # Custom action code
-│   └── test_actions.py      # Unit tests for actions
-├── data/
-│   ├── nlu.yml              # 50+ FAQ intents & multilingual examples
-│   ├── stories.yml          # Conversation flows
-│   └── rules.yml            # Optional rules
-├── tests/
-│   ├── test_nlu.yml         # NLU tests
-│   └── test_stories.yml     # Story tests
-├── models/                  # Trained Rasa models
-├── config.yml               # NLU + policy pipeline
-├── domain.yml               # Intents, entities, slots, responses
-├── credentials.yml          # WhatsApp/Twilio credentials placeholders
-├── endpoints.yml            # Action server endpoints
-├── requirements.txt         # Python dependencies
-└── run.py                   # Script to run bot programmatically
+├── backend/
+│   ├── app.py                 # Flask backend server
+│   └── requirements.txt       # Python dependencies
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   └── Chatbot.js     # Chatbot component
+│   │   ├── App.js             # Main React app
+│   │   ├── main.jsx           # React entry point
+│   │   └── index.css          # Global styles
+│   ├── index.html             # HTML template
+│   ├── package.json           # Node.js dependencies
+│   ├── vite.config.js         # Vite configuration
+│   └── tailwind.config.js     # Tailwind CSS config
+├── data/                      # Rasa training data (legacy)
+├── actions/                   # Rasa custom actions (legacy)
+└── README.md                  # This file
 ```
 
-## 🚀 Quick Start
+## 🔧 API Endpoints
 
-### Prerequisites
+### Health Check
+```
+GET /api/health
+```
+Returns server status and version information.
 
-- Python 3.8 or higher
-- pip package manager
+### Chat with Bot
+```
+POST /api/chat
+Content-Type: application/json
 
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd FalconCare
-   ```
-
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Train the model**
-   ```bash
-   rasa train
-   ```
-
-4. **Start the action server** (in a separate terminal)
-   ```bash
-   rasa run actions
-   ```
-
-5. **Run the bot**
-   ```bash
-   python run.py console
-   ```
-
-## 🎯 Usage
-
-### Console Mode
-```bash
-python run.py console
+{
+  "message": "I have a headache"
+}
 ```
 
-### REST API Mode
-```bash
-python run.py rest [host] [port]
-# Example: python run.py rest localhost 5005
+**Response:**
+```json
+{
+  "message": "**Headache Information:**\n\nHeadache is pain or discomfort in the head or neck area.\n\n**Self-care advice:** Rest in a dark room, apply cold compress, and stay hydrated.\n\n**When to see a doctor:** If headache is severe, sudden, or accompanied by fever, neck stiffness, or vision changes.",
+  "type": "symptom_info",
+  "severity": "moderate",
+  "timestamp": "2024-01-15T10:30:00.000Z",
+  "symptom": "headache",
+  "suggestions": [
+    "Describe your symptoms in more detail",
+    "How long have you had these symptoms?",
+    "Are you taking any medications?",
+    "Do you have any allergies?"
+  ]
+}
 ```
 
-### SocketIO Mode
-```bash
-python run.py socketio [host] [port]
-# Example: python run.py socketio localhost 5005
+### Get Available Symptoms
 ```
-
-## 🧪 Testing
-
-### Run Unit Tests
-```bash
-cd actions
-python -m pytest test_actions.py -v
+GET /api/symptoms
 ```
+Returns list of supported symptoms.
 
-### Run Tests with Coverage
-```bash
-cd actions
-python -m pytest test_actions.py -v --cov=actions.actions --cov-report=html
+### Get Specific Symptom Info
 ```
-
-### Run Rasa Tests
-```bash
-# Test NLU
-rasa test nlu
-
-# Test stories
-rasa test stories
-
-# Test all
-rasa test
+GET /api/symptom/{symptom_name}
 ```
+Returns detailed information about a specific symptom.
 
-## 🔧 Configuration
+## 🎨 Frontend Features
 
-### Custom Actions
+### 3D Animations
+- **Medical Globe**: Rotating 3D sphere with particle effects
+- **Floating Icons**: Animated health-related symbols
+- **Smooth Transitions**: GSAP-powered animations
 
-The bot includes two main custom actions:
+### Interactive Elements
+- **Dark Mode Toggle**: Seamless theme switching
+- **Floating Chat Button**: Always-accessible chatbot
+- **Scroll Animations**: Elements animate on scroll
+- **Hover Effects**: Interactive card animations
 
-1. **ActionSymptomInfo**: Provides detailed symptom information
-   - Handles fever, cough, headache, stomach pain, and fatigue
-   - Includes self-care advice and when to see a doctor
-   - Supports severity, duration, and body part context
+### Responsive Design
+- **Mobile-First**: Optimized for all screen sizes
+- **Touch-Friendly**: Gesture support for mobile devices
+- **Performance**: Optimized for smooth 60fps animations
 
-2. **ActionVaccinationInfo**: Provides vaccination guidance
-   - Covers COVID, flu, routine, and travel vaccines
-   - Includes schedules, eligibility, and side effects
-   - Supports age group and medical condition context
+## 🧠 Backend Intelligence
 
-### NLU Intents
+### Symptom Analysis
+The backend can recognize and provide information about:
+- **Headaches**: Various types and severity levels
+- **Fever**: Temperature monitoring and care advice
+- **Cough**: Respiratory health guidance
+- **Chest Pain**: Emergency detection and response
+- **Stomach Pain**: Digestive health information
+- **Fatigue**: Energy and wellness guidance
 
-The bot supports 50+ intents including:
-- Basic interactions (greet, goodbye, thank_you)
-- Symptom queries (fever, cough, headache, etc.)
-- Vaccination queries (COVID, flu, routine, travel)
-- Health categories (mental health, women's health, child health, etc.)
-- Emergency and preventive health
+### Emergency Detection
+Automatically detects emergency keywords and provides:
+- 🚨 Immediate emergency alerts
+- Critical care instructions
+- Emergency service contact information
 
-### Multilingual Support
-
-The bot includes examples in both English and Hindi:
-- English: "I have fever" / "I need vaccine information"
-- Hindi: "मुझे बुखार है" / "टीकाकरण की जानकारी"
-
-## 📊 Coverage Report
-
-The test suite ensures ≥80% code coverage for custom actions. To generate a coverage report:
-
-```bash
-cd actions
-python -m pytest test_actions.py --cov=actions.actions --cov-report=html
-```
-
-Open `htmlcov/index.html` in your browser to view the detailed coverage report.
-
-## 🔌 Integration
-
-### WhatsApp Integration
-
-To integrate with WhatsApp Business API, update `credentials.yml`:
-
-```yaml
-whatsapp:
-  access_token: "your_whatsapp_access_token_here"
-  verify_token: "your_whatsapp_verify_token_here"
-  phone_number_id: "your_phone_number_id_here"
-```
-
-### SMS Integration
-
-To integrate with Twilio SMS, update `credentials.yml`:
-
-```yaml
-twilio:
-  account_sid: "your_twilio_account_sid_here"
-  auth_token: "your_twilio_auth_token_here"
-  from_number: "your_twilio_phone_number_here"
-```
+### Smart Responses
+- **Context-Aware**: Understands conversation flow
+- **Suggestion System**: Provides follow-up questions
+- **Severity Assessment**: Categorizes health concerns
+- **Personalized Advice**: Tailored health recommendations
 
 ## 🛠️ Development
 
-### Adding New Intents
+### Backend Development
+```bash
+cd backend
+python3 app.py
+```
 
-1. Add intent examples to `data/nlu.yml`
-2. Add corresponding stories to `data/stories.yml`
-3. Update `domain.yml` with new intent
-4. Retrain the model: `rasa train`
+### Frontend Development
+```bash
+cd frontend
+npm run dev
+```
 
-### Adding New Actions
+### Building for Production
+```bash
+cd frontend
+npm run build
+```
 
-1. Create new action class in `actions/actions.py`
-2. Add action to `domain.yml`
-3. Write tests in `actions/test_actions.py`
-4. Update stories to use the new action
+## 🔒 Security & Privacy
 
-### Adding New Languages
+- **No Data Storage**: Conversations are not permanently stored
+- **CORS Protection**: Secure cross-origin requests
+- **Input Validation**: All inputs are sanitized
+- **Error Handling**: Graceful error management
 
-1. Add language examples to `data/nlu.yml`
-2. Update `config.yml` with language settings
-3. Retrain the model: `rasa train`
+## 🌐 Deployment
 
-## 📝 API Endpoints
+### Backend Deployment
+1. Deploy to any Python hosting service (Heroku, Railway, etc.)
+2. Set environment variables if needed
+3. Ensure CORS is configured for your frontend domain
 
-When running in REST API mode, the bot exposes:
-
-- `POST /webhooks/rest/webhook` - Send messages to the bot
-- `GET /health` - Health check endpoint
-- `POST /conversations/{conversation_id}/messages` - Send message to specific conversation
+### Frontend Deployment
+1. Build the production version: `npm run build`
+2. Deploy the `dist` folder to any static hosting service
+3. Configure API endpoints to point to your backend
 
 ## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Add tests for new functionality
-5. Ensure all tests pass
-6. Submit a pull request
+4. Test thoroughly
+5. Submit a pull request
 
 ## 📄 License
 
@@ -228,14 +231,20 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 For support and questions:
 - Create an issue in the repository
-- Check the Rasa documentation: https://rasa.com/docs/
-- Review the test files for usage examples
+- Check the API documentation
+- Review the code examples
 
-## 🔄 Version History
+## 🔮 Future Enhancements
 
-- **v1.0.0** - Initial release with basic symptom and vaccination support
-- Phase 1 complete with 50+ intents and comprehensive testing
+- **Rasa Integration**: Full conversational AI capabilities
+- **User Authentication**: Personalized health profiles
+- **Medical Database**: Integration with health databases
+- **Telemedicine**: Video consultation features
+- **Mobile App**: Native iOS/Android applications
+- **Analytics**: Health trend tracking and insights
 
 ---
 
-**Note**: This is a Phase 1 implementation. Future phases will include more advanced features like appointment booking, prescription management, and integration with health databases.
+**Built with ❤️ for healthcare innovation**
+
+*FalconCare - Revolutionizing healthcare with AI-powered assistance*
